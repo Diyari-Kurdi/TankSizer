@@ -18,16 +18,22 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer>
             <ItemsControl
+                x:Name="itemsControl"
                 Margin="10"
+                Padding="25"
                 ItemsSource="{Binding TankOptions}"
                 ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border
+                            x:Name="ItemBorder"
                             Margin="0,0,0,10"
+                            Padding="0"
                             Background="WhiteSmoke"
-                            CornerRadius="15">
-                            <StackPanel Margin="10">
+                            CornerRadius="15"
+                            MouseEnter="ItemBorder_MouseEnter"
+                            MouseLeave="ItemBorder_MouseLeave">
+                            <StackPanel x:Name="ItemStack" Margin="10">
                                 <TextBlock
                                     Margin="0,0,0,5"
                                     FontSize="16"
@@ -124,7 +130,7 @@
             <TextBlock
                 Grid.Row="5"
                 Margin="0,5,10,0"
-                Text="Min Y Columns (Length)" />
+                Text="Min Y Columns (Width)" />
             <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
